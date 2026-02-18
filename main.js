@@ -4,3 +4,4 @@ import.meta.env.VITE_API_KEY;
 
 loadFromLocalStorage();
 applyEventListeners();
+console.log("API KEY:", import.meta.env.VITE_API_KEY);

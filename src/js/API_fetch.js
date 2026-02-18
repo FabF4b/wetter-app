@@ -5,8 +5,8 @@ import { applyListeners } from "./utils";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const API_LANG = "de";
-const API_FORECAST = "http://api.weatherapi.com/v1/forecast.json";
-const API_SEARCH = "http://api.weatherapi.com/v1/search.json";
+const API_FORECAST = "https://api.weatherapi.com/v1/forecast.json";
+const API_SEARCH = "https://api.weatherapi.com/v1/search.json";
 
 export async function fetchForecast(city) {
   const response = await fetch(
