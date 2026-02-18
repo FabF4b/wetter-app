@@ -3,7 +3,7 @@ import { cities } from "./storage";
 import { renderAutocompleteList, renderCompactWeather } from "./UI_render";
 import { applyListeners } from "./utils";
 
-const API_KEY = "09891e249cd6454ab03104830260902";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const API_LANG = "de";
 const API_FORECAST = "http://api.weatherapi.com/v1/forecast.json";
 const API_SEARCH = "http://api.weatherapi.com/v1/search.json";
