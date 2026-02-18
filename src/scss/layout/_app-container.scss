@@ -1,0 +1,10 @@
+.app-container {
+  width: 430px;
+  height: 90vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: var(--font-primary);
+  background: var(--bg-clr-1);
+  padding: var(--space-md);
+}

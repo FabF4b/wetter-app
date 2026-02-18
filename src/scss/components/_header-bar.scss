@@ -1,0 +1,31 @@
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+
+  &--blurred {
+    filter: blur(12px);
+  }
+
+  &__title {
+    color: var(--text-clr-1);
+    font-weight: 600;
+  }
+
+  &__action-button {
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-clr-2);
+    color: var(--text-clr-1);
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 4;
+  }
+}
