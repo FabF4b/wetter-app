@@ -28,6 +28,7 @@ export async function fetchCompact() {
     const forecast = await fetchForecast(city.id);
     renderCompactWeather(forecast, city.id);
     applyListeners();
+    console.log(forecast);
   }
 }
 

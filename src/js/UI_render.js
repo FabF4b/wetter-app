@@ -1,10 +1,16 @@
 import { fetchForecast } from "./API_fetch";
-import { detailCityEl, savedLocationsEl, autocompleteListEl } from "./elements";
+import {
+  detailCityEl,
+  savedLocationsEl,
+  autocompleteListEl,
+  actionButtonEl,
+} from "./elements";
 import { setCurrentCity } from "./utils";
 import { cities, saveLocation } from "./storage";
 
 export function renderAutocompleteList(suggestions) {
   autocompleteListEl.innerHTML = "";
+
   suggestions.forEach((suggestion) => {
     const suggestionItemEl = document.createElement("li");
     suggestionItemEl.dataset.id = suggestion.url;
@@ -79,29 +85,141 @@ export async function renderDetailWeather(city) {
 
   const forecast = await fetchForecast(city);
   let detailWeatherCard = "";
-
+  actionButtonEl.textContent = "←";
   detailWeatherCard += `
-    <button
-        id="location-detail__save-button"
-        class="location-detail__save-button">+
-      </button>
-    <p class="location-detail__name">${forecast.location.name}</p>
-    <p class="location-detail__temp">${Math.floor(forecast.current.temp_c)}°</p>
-    <p class="location-detail__condition">${forecast.current.condition.text}</p>
-    <div>
-        <span class="location-detail__high">H:${Math.floor(forecast.forecast.forecastday[0].day.maxtemp_c)}°</span>
-        <span class="location-detail__low">T:${Math.floor(forecast.forecast.forecastday[0].day.mintemp_c)}°</span>
-      </div>
+        <button
+          id="detail-view__save-button"
+          class="detail-view__save-button"
+          >
+          +
+        </button>
+        <div class="head">
+            <p class="head__city">${forecast.location.name}</p>
+            <p class="head__temp">${Math.floor(forecast.current.temp_c)}°</p>
+            <p class="head__feels">Gefühlt: ${Math.floor(forecast.current.feelslike_c)}°</p>
+            <div>
+              <span class="head__day-high">H: ${Math.floor(forecast.forecast.forecastday[0].day.maxtemp_c)}°</span
+              ><span class="head__day-low">T: ${Math.floor(forecast.forecast.forecastday[0].day.mintemp_c)}°</span>
+            </div>
+          </div>
+          <section class="detail-view__current-weather">
+          <div class="current-weather">
+            <p class="current-weather__condition-text">
+              Aktuell ${forecast.current.condition.text}. Über den Tag ${forecast.forecast.forecastday[0].day.condition.text}
+            </p>
+            <ul class="current-weather__forecast-list">
+              <li>
+                <p>12h</p>
+                <p>☀️</p>
+                <p>10*</p>
+              </li>
+
+              <li>
+                <p>12h</p>
+                <p>☀️</p>
+                <p>10*</p>
+              </li>
+
+              <li>
+                <p>12h</p>
+                <p>☀️</p>
+                <p>10*</p>
+              </li>
+
+              <li>
+                <p>12h</p>
+                <p>☀️</p>
+                <p>10*</p>
+              </li>
+
+              <li>
+                <p>12h</p>
+                <p>☀️</p>
+                <p>10*</p>
+              </li>
+
+              <li>
+                <p>12h</p>
+                <p>☀️</p>
+                <p>10*</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="detail-view__forecast-weather">
+          <div class="forecast-weather">
+            <p class="forecast-weather__title">7 Tage Vorhersage</p>
+            <div class="forecast-weather__days">
+              <p>heute</p>
+              <p>☀️</p>
+              <p>15*</p>
+              <p>----</p>
+              <p>20*</p>
+            </div>
+            <div class="forecast-weather__days">
+              <p>heute</p>
+              <p>☀️</p>
+              <p>15*</p>
+              <p>----</p>
+              <p>20*</p>
+            </div>
+            <div class="forecast-weather__days">
+              <p>heute</p>
+              <p>☀️</p>
+              <p>15*</p>
+              <p>----</p>
+              <p>20*</p>
+            </div>
+            <div class="forecast-weather__days">
+              <p>heute</p>
+              <p>☀️</p>
+              <p>15*</p>
+              <p>----</p>
+              <p>20*</p>
+            </div>
+            <div class="forecast-weather__days">
+              <p>heute</p>
+              <p>☀️</p>
+              <p>15*</p>
+              <p>----</p>
+              <p>20*</p>
+            </div>
+            <div class="forecast-weather__days">
+              <p>heute</p>
+              <p>☀️</p>
+              <p>15*</p>
+              <p>----</p>
+              <p>20*</p>
+            </div>
+            <div class="forecast-weather__days">
+              <p>heute</p>
+              <p>☀️</p>
+              <p>15*</p>
+              <p>----</p>
+              <p>20*</p>
+            </div>
+          </div>
+        </section>
+        <section class="detail-view__more-weather">
+          <div class="more-weather">
+            <div class="more-weather__item">1</div>
+            <div class="more-weather__item">2</div>
+            <div class="more-weather__item">3</div>
+            <div class="more-weather__item">4</div>
+            <div class="more-weather__item">5</div>
+            <div class="more-weather__item">6</div>
+          </div>
+        </section>      
   `;
   detailCityEl.innerHTML = detailWeatherCard;
-  detailCityEl.classList.remove("location-detail--hidden");
+  detailCityEl.classList.remove("detail-view--hidden");
 
-  const saveButtonEl = document.getElementById("location-detail__save-button");
+  const saveButtonEl = document.getElementById("detail-view__save-button");
   saveButtonEl.addEventListener("click", saveLocation);
 
   const alreadySaved = cities.find((savedCity) => savedCity.id === city);
 
   if (alreadySaved) {
-    saveButtonEl.classList.toggle("location-detail__save-button--hidden");
+    saveButtonEl.classList.add("detail-view__save-button--hidden");
   }
 }

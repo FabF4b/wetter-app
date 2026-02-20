@@ -12,4 +12,4 @@ export const returnButtonEl = document.getElementById(
   "search-panel__return-button",
 );
 
-export const detailCityEl = document.getElementById("location-detail");
+export const detailCityEl = document.getElementById("detail-view");

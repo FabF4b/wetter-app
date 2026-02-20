@@ -1,0 +1,78 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-clr-1);
+  margin-top: 5rem;
+
+  &__city {
+    font-size: var(--font-md);
+  }
+  &__temp {
+    font-size: var(--font-xl);
+  }
+  &__feels {
+    margin-top: var(--space-sm);
+  }
+  &__day-high {
+    margin-right: var(--space-xs);
+  }
+  &__day-low {
+  }
+}
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-clr-2);
+  border-radius: 40px;
+  corner-shape: squircle;
+  color: var(--text-clr-1);
+  padding: var(--space-sm);
+
+  &__condition-text {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dotted black;
+  }
+
+  &__forecast-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-top: 1rem;
+  }
+}
+
+.forecast-weather {
+  &__title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  &__days {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+.more-weather {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: var(--space-sm);
+
+  &__item {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-clr-2);
+    border-radius: 40px;
+    corner-shape: squircle;
+    padding: 1rem;
+  }
+}

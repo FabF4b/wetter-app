@@ -14,6 +14,7 @@ export function saveLocation() {
     id: currentCity,
   };
   cities.push(city);
+
   fetchCompact();
   saveToLocalStorage();
 }
@@ -21,6 +22,7 @@ export function saveLocation() {
 export function deleteLocation(click) {
   const selectedLocation = click.target.closest(".saved-locations-list__item")
     .dataset.id;
+
   if (!selectedLocation) return;
 
   const id = selectedLocation;
@@ -36,8 +38,10 @@ export function saveToLocalStorage() {
 
 export function loadFromLocalStorage() {
   const savedLocations = localStorage.getItem(STORAGE_KEY);
+
   if (savedLocations) {
     cities = JSON.parse(savedLocations);
   }
+
   fetchCompact();
 }

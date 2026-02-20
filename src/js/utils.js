@@ -49,7 +49,7 @@ export function applyEventListeners() {
 }
 
 export function actionButton() {
-  if (detailCityEl.classList.contains("location-detail--hidden")) {
+  if (detailCityEl.classList.contains("detail-view--hidden")) {
     const deleteButtonEl = document.querySelectorAll(
       ".saved-locations-list__delete-button",
     );
@@ -58,7 +58,8 @@ export function actionButton() {
       button.addEventListener("click", deleteLocation);
     });
   } else {
-    detailCityEl.classList.add("location-detail--hidden");
+    detailCityEl.classList.add("detail-view--hidden");
+    actionButtonEl.textContent = "•••";
     clearSearchAutocomplete();
   }
 }
