@@ -1,10 +1,11 @@
+@use "../base/mixins";
+
 .search-panel {
+  @include mixins.flexCenter;
+
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: var(--space-sm);
-  margin-bottom: var(--space-md);
+  margin-top: var(--space-md);
 
   &__container-bar {
     width: 100%;
@@ -15,7 +16,7 @@
     border-radius: 100vh;
     text-overflow: ellipsis;
     border: none;
-    z-index: 2;
+    z-index: 1;
     padding: var(--space-xs);
     gap: var(--space-xs);
   }
@@ -46,11 +47,11 @@
     height: 50%;
     position: absolute;
     bottom: 0;
-    background: var(--bg-clr-1);
+    background: var(--bg-clr-3);
+    backdrop-filter: blur(6px);
     border-radius: 40px 40px 0px 0px;
     corner-shape: squircle;
-    z-index: 1;
-    padding-bottom: var(--space-xl);
+    padding-bottom: 6rem;
 
     &--hidden {
       display: none;
@@ -70,18 +71,17 @@
   }
 
   &__return-button {
+    @include mixins.flexCenter;
+
     height: 2.5rem;
     width: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: var(--bg-clr-2);
     font-size: var(--font-md);
     color: var(--text-clr-1);
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    z-index: 2;
+    z-index: 1;
     padding: var(--space-md);
 
     &--hidden {

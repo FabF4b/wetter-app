@@ -1,9 +1,10 @@
+@use "../base/mixins";
+
 .saved-locations-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   overflow-y: auto;
-  margin-bottom: var(--space-md);
 
   &__delete-button {
     stroke: var(--text-clr-3);
@@ -19,26 +20,36 @@
   }
 
   &__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include mixins.flexCenter;
+
     gap: var(--space-sm);
+    text-shadow: 2px 2px 4px hsla(0, 0%, 15%, 0.75);
   }
 }
 
-.location-compact {
+.location-card {
+  @include mixins.card;
+  @include mixins.boxShadow;
+
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: space-between;
   background: var(--bg-clr-2);
-  border-radius: 40px;
-  corner-shape: squircle;
+  cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
-  cursor: pointer;
   padding: var(--space-xs) var(--space-sm);
+
+  &:hover {
+    border: 1px solid var(--border-clr-2);
+  }
+
+  &.show-background {
+    background:
+      linear-gradient(0deg, hsla(0 0 10 / 0.5), hsla(0 0 10 / 0.5)),
+      var(--condition-image);
+    background-size: cover;
+    background-position: center;
+  }
 
   &__name {
     font-size: var(--font-md);
@@ -67,13 +78,10 @@
   }
 
   &__highLow {
+    display: flex;
+    gap: var(--space-xs);
     font-size: var(--font-sm);
     color: var(--text-clr-1);
-    margin-left: var(--space-xs);
     margin-top: var(--space-md);
-
-    &--high {
-      margin-right: var(--space-xs);
-    }
   }
 }

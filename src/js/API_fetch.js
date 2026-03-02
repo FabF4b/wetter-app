@@ -1,34 +1,20 @@
-import { savedLocationsEl } from "./elements";
-import { cities } from "./storage";
-import { renderAutocompleteList, renderCompactWeather } from "./UI_render";
-import { applyListeners } from "./utils";
+import { renderAutocompleteList } from "./autocomplete";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const API_LANG = "de";
-const API_FORECAST = "https://api.weatherapi.com/v1/forecast.json";
+export const API_FORECAST = "https://api.weatherapi.com/v1/forecast.json";
 const API_SEARCH = "https://api.weatherapi.com/v1/search.json";
 
 export async function fetchForecast(city) {
   const response = await fetch(
-    `${API_FORECAST}?key=${API_KEY}&q=${city}&lang=${API_LANG}`,
+    `${API_FORECAST}?key=${API_KEY}&q=${city}&lang=${API_LANG}&days=3`,
   );
 
   if (!response.ok) {
     alert("Daten konnten nicht abgerufen werden!");
   } else {
-    const forecast = await response.json();
-    return forecast;
-  }
-}
-
-export async function fetchCompact() {
-  savedLocationsEl.innerHTML = "";
-
-  for (const city of cities) {
-    const forecast = await fetchForecast(city.id);
-    renderCompactWeather(forecast, city.id);
-    applyListeners();
-    console.log(forecast);
+    const forecastData = await response.json();
+    return forecastData;
   }
 }
 

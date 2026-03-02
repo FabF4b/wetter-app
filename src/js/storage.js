@@ -1,5 +1,5 @@
+import { loadMainMenu } from "./render_main-menu";
 import { getCurrentCity } from "./utils";
-import { fetchCompact } from "./API_fetch";
 
 export const STORAGE_KEY = "weather-app";
 export let cities = [];
@@ -13,23 +13,9 @@ export function saveLocation() {
   const city = {
     id: currentCity,
   };
+
   cities.push(city);
-
-  fetchCompact();
   saveToLocalStorage();
-}
-
-export function deleteLocation(click) {
-  const selectedLocation = click.target.closest(".saved-locations-list__item")
-    .dataset.id;
-
-  if (!selectedLocation) return;
-
-  const id = selectedLocation;
-  cities = cities.filter((city) => city.id !== id);
-
-  saveToLocalStorage();
-  loadFromLocalStorage();
 }
 
 export function saveToLocalStorage() {
@@ -42,6 +28,17 @@ export function loadFromLocalStorage() {
   if (savedLocations) {
     cities = JSON.parse(savedLocations);
   }
+  loadMainMenu();
+}
 
-  fetchCompact();
+export function deleteLocation(click) {
+  const selectedLocation = click.target.closest(".saved-locations-list__item")
+    .dataset.id;
+
+  if (!selectedLocation) return;
+
+  const id = selectedLocation;
+  cities = cities.filter((city) => city.id !== id);
+  saveToLocalStorage();
+  loadMainMenu();
 }

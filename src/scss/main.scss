@@ -1,10 +1,11 @@
-@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/base/variables" as *;
 @use "/src/scss/base/reset";
 @use "/src/scss/base/body";
-@use "/src/scss/layout/app-container";
+@use "/src/scss/base/mixins";
+@use "/src/scss/components/loading";
 @use "/src/scss/components/header-bar";
 @use "/src/scss/components/detail-view";
-@use "/src/scss/components/detail-view-sections";
 @use "/src/scss/components/saved-locations-list";
 @use "/src/scss/components/search-panel";
+@use "/src/scss/layout/app-container";
 @use "/src/scss/utilities/helpers";
