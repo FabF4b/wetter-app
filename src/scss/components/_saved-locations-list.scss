@@ -43,7 +43,7 @@
   white-space: nowrap;
   overflow: hidden;
   padding: var(--space-xs) var(--space-sm);
-  transition: all 0.2s ease-out;
+  transition: all 0.2s;
 
   &:hover {
     border: 1px solid var(--border-highlight);

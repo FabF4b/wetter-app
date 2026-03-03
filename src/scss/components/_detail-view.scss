@@ -36,9 +36,10 @@
     right: 1.5rem;
     background: var(--bg-clr-2);
     color: var(--text-clr-1);
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      background: var(--bg-clr-3);
+      background: transparent;
     }
   }
 
