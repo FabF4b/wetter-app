@@ -119,7 +119,7 @@ function getForecastHtml(forecast) {
                 alt=""
                 class="forecast-weather__icon"/>
             <p>${Math.floor(forecastDay.day.mintemp_c)}°</p>
-            <p>----</p>
+            <p>――</p>
             <p>${Math.floor(forecastDay.day.maxtemp_c)}°</p>
         </div>
         `,
@@ -168,15 +168,16 @@ function getMoreWeatherHtml(forecast) {
 
 function applyButtons() {
   const saveButtonEl = document.querySelector(".head__save-button");
-  saveButtonEl.addEventListener("click", saveLocation);
-
-  const actionButtonEl = document.querySelector(".head__action-button");
-  actionButtonEl.addEventListener("click", loadMainMenu);
-}
-
-function toggleSave() {
-  const saveButtonEl = document.querySelector(".head__save-button");
   saveButtonEl.addEventListener("click", () => {
     saveButtonEl.classList.toggle("head__save-button--saved");
+  });
+
+  const actionButtonEl = document.querySelector(".head__action-button");
+  actionButtonEl.addEventListener("click", () => {
+    if (saveButtonEl.classList.contains("head__save-button--saved")) {
+      (saveLocation(), loadMainMenu());
+    } else {
+      loadMainMenu();
+    }
   });
 }

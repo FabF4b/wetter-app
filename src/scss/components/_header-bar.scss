@@ -22,5 +22,9 @@
     right: 1rem;
     background: var(--bg-clr-2);
     color: var(--text-clr-1);
+
+    &:hover {
+      background: var(--bg-clr-3);
+    }
   }
 }

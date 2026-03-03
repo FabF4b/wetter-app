@@ -6,7 +6,7 @@
   corner-shape: squircle;
   padding: var(--space-sm);
   backdrop-filter: blur(6px);
-  border: 1px solid var(--bg-clr-2);
+  border: 1px solid var(--border-clr-1);
 }
 
 @mixin button {
@@ -14,7 +14,7 @@
   width: 2.5rem;
   font-size: var(--font-md);
   border-radius: 50%;
-  border: 1px solid var(--bg-clr-2);
+  border: 1px solid var(--border-clr-1);
   cursor: pointer;
   margin: 0.5rem;
 }
@@ -25,6 +25,15 @@
   align-items: center;
 }
 
-@mixin boxShadow {
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 24px 20px 0px;
+@mixin largeScreen {
+  @media screen and (min-width: 500px) {
+    width: 500px;
+    max-height: 90%;
+    border-radius: 40px;
+    corner-shape: squircle;
+    gap: var(--space-lg);
+    font-family: var(--font-primary);
+    background: var(--bg-clr-1);
+    padding: var(--space-lg);
+  }
 }

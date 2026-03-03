@@ -57,6 +57,7 @@ function returnButton() {
   autocompleteListEl.classList.add("search-panel__autocomplete-list--hidden");
   headerbarEl.classList.remove("header-bar--blurred");
   savedListEl.classList.remove("saved-locations-list--blurred");
-  loactionInputEl.textContent = "";
+  loactionInputEl.value = "";
+  returnButtonEl.classList.add("search-panel__return-button--hidden");
   returnButtonEl.addEventListener("click", loadMainMenu);
 }

@@ -15,12 +15,12 @@ async function renderMainMenu() {
   rootElement.classList.remove("show-background");
 
   rootElement.innerHTML = `
-  <div class="main-menu-container">
+      <div class="main-menu-container">
     ${getHeadHtml()}
     ${await getSavedLocationHtml()}
     ${getSearchbarHtml()}
-  </div>
-  `;
+    </div>
+`;
   applyDetailView();
   applyAutocomplete();
   applyActionButton();
