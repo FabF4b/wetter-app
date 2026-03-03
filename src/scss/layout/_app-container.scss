@@ -2,7 +2,7 @@
 
 #app {
   @include mixins.largeScreen;
-  width: 500px;
+  width: 480px;
   height: 100%;
   position: relative;
   display: flex;
@@ -12,10 +12,12 @@
   background: var(--bg-clr-1);
   gap: var(--space-lg);
   padding: var(--space-lg);
+  border: 1px solid var(--border-clr-1);
+  box-shadow: hsla(269, 11%, 44%, 0.3) 0px 16px 124px;
 
   &.show-background {
     background:
-      linear-gradient(0deg, hsla(0 0 10 / 0.5), hsla(0 0 10 / 0.5)),
+      linear-gradient(0deg, hsla(0, 0%, 10%, 0.5), hsla(0, 0%, 10%, 0.5)),
       var(--condition-image);
     background-size: cover;
     background-position: top left;

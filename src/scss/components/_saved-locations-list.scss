@@ -9,9 +9,10 @@
   &__delete-button {
     stroke: var(--text-warning);
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      stroke: hsl(0 75 50);
+      stroke: hsl(0, 75%, 50%);
     }
 
     &--hidden {
@@ -38,17 +39,20 @@
   align-items: space-between;
   background: var(--bg-clr-2);
   cursor: pointer;
+  user-select: none;
   white-space: nowrap;
   overflow: hidden;
   padding: var(--space-xs) var(--space-sm);
+  transition: all 0.2s ease-out;
 
   &:hover {
     border: 1px solid var(--border-highlight);
+    box-shadow: hsla(0, 0%, 60%, 0.2) 0px 8px 30px -8px inset;
   }
 
   &.show-background {
     background:
-      linear-gradient(0deg, hsla(0 0 10 / 0.5), hsla(0 0 10 / 0.5)),
+      linear-gradient(0deg, hsla(0, 0%, 10%, 0.5), hsla(0, 0%, 10%, 0.5)),
       var(--condition-image);
     background-size: cover;
     background-position: center;

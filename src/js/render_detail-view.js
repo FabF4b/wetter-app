@@ -4,7 +4,6 @@ import { renderLoading } from "./loading";
 import { loadMainMenu } from "./render_main-menu";
 import { saveLocation } from "./storage";
 import {
-  currentCity,
   format24HourTime,
   formatTime,
   get24HoursFromNow,
